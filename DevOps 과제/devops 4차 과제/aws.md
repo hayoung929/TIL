@@ -5,20 +5,20 @@
 
 - 인터넷 기반의 컴퓨팅으로 인터넷 상의 가상화 된 서버에 프로그램을 두고 필요 할때마다 컴퓨터나 스마트폰 등에 불러와 사용하는 서비스
 - 인터넷만 연결된다면 언제 어디서든 저장한 데이터를 가져올 수 있다.
-2. **IaaS (Infrastructure as a Service) 서비스형 인프라**
+1. **IaaS (Infrastructure as a Service) 서비스형 인프라**
    - 클라우드에서 호스팅되는 컴퓨팅, 스토리지,네트워킹에 대한 주문형 액세스를 제공하는 클라우드 컴튜xld의 형태
    - 운영체제, 미들웨어, 앱은 직접 설치,관리
    - ex) AWS EC2, Google Compute Engine 등
-3. **PaaS (Platform as a Service) 서비스형 플랫폼**
+2. **PaaS (Platform as a Service) 서비스형 플랫폼**
    - 애플리케이션을 개발,실행,유지 관리 및 관리하기 위한 완전한 온디맨드 클라우드 플랫폼을 제공하는 클라우드 컴퓨팅 모델
     - 운영체제,런타임,미들웨어 전체 제공
     - 코드만 올리고 인프라 관리 필요 X
     - ex) AWS Elastic Beanstalk Google App Engine 등
-4. **SaaS (Software as a Service)**
+3. **SaaS (Software as a Service)**
     - 인프라, 플랫폼, 앱을 서비스로 제공
     - 관리 X
     - ex) Gmail, Google Docs, Notion 등
-  5. 각각의 장단점
+4.  각각의 장단점
    - **IaaS**
       - 장점 : 내 마음대로 서버 설정 가능, OS부터 전부 커스터마이즈 가능, 비용 최적화, 어떤 환경과 언어 가능
       - 단점 : 직접 관리 할것이 많다, 보안패치 업데이트 다 직접, 운영 전문 인력 필요
@@ -145,22 +145,22 @@
   - 사용자와 물리적으로 가까울 수록 응답 빠름
   - 법적 규제
   - 서비스 가격 (요금이 리전마다 다름)
-1. **Availability Zone**
+2. **Availability Zone**
 - 리전 안에 있는 실제 데이터센터 단위
 - 하나의 리전에 최소 3개 AZ있음
 - AZ끼리는 물리적으로 수십km 떨어짐
 - 전용 광케이블로 연결되있어서 인터넷 빠름
-1. **Edge Location**
+3. **Edge Location**
 - 리전/AZ와 완전히 별개로 전 세계에 퍼져 있는 캐시 서버
 - 주로 CloudFront가 여기서 동작
 - **CloudFront**란?
   - AWS에서 제공되는 고속 콘텐즈 전송 네트워크 서비스
-1. **VPC**
+4. **VPC**
 - (Virtual Private Cloud)
 - AWS 안에서 나만의 격리된 네트워크 공간
 - 외부에서 함부로 접근 불가
 - 리전 단위로 생성
-1. **서브넷**
+5. **서브넷**
 - VPC를 용도별로 쪼갠 구역
 - **Public Subnet** : 인터넷 연결 가능 -> 웹 서버, 로드 밸런서
 - **Private Subnet** : 인터넷 차단 -> DB, 내부 API
@@ -257,7 +257,7 @@
     - / 뒤 숫자로 네트워크 크기를 나타냄
     - 서브넷 마스크를 더 간결하게 표현한 현대 방식
     - 숫자가 클수록 범위 좁아지고, 작을수록 범위 넓어짐
-1. **IGW**
+2. **IGW**
 - Internet Gateway
 - 개념
   - VPC가 인터넷과 통신할 수 있게 해주는 출입문
@@ -266,7 +266,7 @@
   - Public Subnet의 리소스가 인터넷과 통신할 때 사용
   - 양방향 통신 가능
   - IGW 없으면 VPC는 인터넷X
-1. **NAT Gateway**
+3. **NAT Gateway**
 - 개념
   - Private Subnet의 리소스가 인터넷으로 나가는 것만 허용하는 장치
   - Network Address Translation : 사설 IP를 공인 IP로 변환
@@ -274,14 +274,14 @@
   - Outbound(나감) : 허용 -> 패키지 설치, 외부 API 호출 가능
   - Inbound(들어옴) : 차단 -> 외부에서 직접 접근 불가
   - Public Subnet 안에 위치
-1. **라우팅 테이블**
+4. **라우팅 테이블**
 - 개념
   - 네트워크 트래픽을 어디로 보낼지 규칙을 정의한 표
   - 서브넷마다 라우팅 테이블 연결
 - 특징
     - 목적지 IP에 따라 트래픽 경로 결정
     - Public/Private Subnet마다 다른 규칙 적용
-1. **Security Group**
+5. **Security Group**
 - 개념
   - EC2 인스턴스 단위로 적용되는 가상 방화벽
   - 인바운드/아웃바운드 트래픽 규칙 설정
@@ -290,7 +290,7 @@
   - 허용 규칙만 설정 가능(명시적 차단 규칙 없음)
   - 포트,프로토콜,IP 기준으로 제어
   - 여러 EC2에 동일한 보안 그룹 적용 가능
-1. **NACL**
+6. **NACL**
 - Network Access Control List
 - 개념
   - 서브넷 단위로 적용되는 추가 방화벽
@@ -299,7 +299,7 @@
   - Stateless -- 인바운드 허용해도 아웃바운드 따로 설정 필요
   - 허용/차단 규칙 둘 다 설정 가능
   - 규칙 번호 순서대로 적용
-1. **ELB**
+7. **ELB**
 - Elastic Load Balancer
 - 개념
   - 들어오는 트래픽을 여러 서버에 자동으로 분산시켜주는 서비스
@@ -314,7 +314,7 @@
     - TCP/UDP 트래픽 처리
     - 매우 빠른 속도
     - 게임 서버, 실시간 서비스에 적합
-1. **Route 53**
+8. **Route 53**
 - 개념 
   - AWS의 DNS서비스
   - 도메인 이름을 IP 주소로 변환
@@ -322,7 +322,7 @@
   - 도메인 구매/등록 가능
   - 헬스체크 기능 -- 서버 죽으면 다른 서버로 자동 전환
   - 지역 기반 라우팅 가능
-1. **CloudFront**
+9. **CloudFront**
 - 개념
   - AWS의 CDN(Content Delivery Network) 서비스
   - 전 세계 Edge Location에 콘텐츠를 캐싱해서 빠르게 제공
