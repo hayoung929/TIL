@@ -1,4 +1,3 @@
-사용함# Nginx , Apache
 ## 웹 서버
 <details>
 <summary>웹 서버의 의미</summary>
